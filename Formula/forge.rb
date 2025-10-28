@@ -5,23 +5,23 @@
 class Forge < Formula
   desc "Comprehensive backend framework for Go with enterprise-grade features"
   homepage "https://github.com/xraph/forge"
-  version "0.1.11"
+  version "0.1.12"
   license "MIT"
 
   depends_on "go" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/forge/releases/download/v0.1.11/forge-0.1.11-darwin-x86_64.tar.gz"
-      sha256 "d1c1ffa45ca2b8a26716dd54be5d08f470e5542a058505a92102a8048c22f86c"
+      url "https://github.com/xraph/forge/releases/download/v0.1.12/forge-0.1.12-darwin-x86_64.tar.gz"
+      sha256 "7ceb723a51eaa407044a8df91e63af7244e1a44b41727564520e275b4598883e"
 
       def install
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/forge/releases/download/v0.1.11/forge-0.1.11-darwin-arm64.tar.gz"
-      sha256 "48064a32fe539bfec945380647e09128ecec35e6de1c80f31106716279ab30eb"
+      url "https://github.com/xraph/forge/releases/download/v0.1.12/forge-0.1.12-darwin-arm64.tar.gz"
+      sha256 "93a70186726aff275b094ad7956408314a8704097a1cff7803a29f7465edd6dd"
 
       def install
         bin.install "forge"
@@ -31,15 +31,15 @@ class Forge < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v0.1.11/forge-0.1.11-linux-x86_64.tar.gz"
-      sha256 "bea244db67274311f4d92e1ed8c2639245c79c45eed73c6e5dd67edce0d6325a"
+      url "https://github.com/xraph/forge/releases/download/v0.1.12/forge-0.1.12-linux-x86_64.tar.gz"
+      sha256 "092869dc6d7a1b59242b54cc92f6aa64b47f363ec1f3673f10a569eba51675d1"
       def install
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v0.1.11/forge-0.1.11-linux-arm64.tar.gz"
-      sha256 "7bfe5037881fe06d0955b9aba07a42c10204fbbc5b4a8c46fbd6ccc9859dbbc6"
+      url "https://github.com/xraph/forge/releases/download/v0.1.12/forge-0.1.12-linux-arm64.tar.gz"
+      sha256 "5d5b3d0342c2f9f4b7864fdad0dc245f3f1bb2ebfb7d34945cc799df88504107"
       def install
         bin.install "forge"
       end
