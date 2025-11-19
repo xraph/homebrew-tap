@@ -5,23 +5,23 @@
 class Forge < Formula
   desc "Comprehensive backend framework for Go with enterprise-grade features"
   homepage "https://github.com/xraph/forge"
-  version "0.3.0"
+  version "0.6.0"
   license "MIT"
 
   depends_on "go" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/forge/releases/download/v0.3.0/forge-0.3.0-darwin-x86_64.tar.gz"
-      sha256 "458ff139578b6179529f59c2f197a1c22b29b88e1d361bca5d9bc5e1c45af856"
+      url "https://github.com/xraph/forge/releases/download/v0.6.0/forge-0.6.0-darwin-x86_64.tar.gz"
+      sha256 "b5c14e51187f1861e8457ced0bede8eece6b463e98db6811e1dd682852bb6553"
 
       def install
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/forge/releases/download/v0.3.0/forge-0.3.0-darwin-arm64.tar.gz"
-      sha256 "e4eaf8bc02b9a04ef4a83260bdd0dff7598973ef931ba9a4f6e499755f90007b"
+      url "https://github.com/xraph/forge/releases/download/v0.6.0/forge-0.6.0-darwin-arm64.tar.gz"
+      sha256 "eba82677227c081e56e396822381ef74e84879e6d3468d76f4eb7d8d461caac4"
 
       def install
         bin.install "forge"
@@ -31,15 +31,15 @@ class Forge < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v0.3.0/forge-0.3.0-linux-x86_64.tar.gz"
-      sha256 "4d0d1b8326e8dcb48b8ce62a589b7ab1361774bea9d6eacb721b8dc7589c066d"
+      url "https://github.com/xraph/forge/releases/download/v0.6.0/forge-0.6.0-linux-x86_64.tar.gz"
+      sha256 "6a89c4592bddc87ab7579d003d698cb323b440aefba9ac2ccd233a2239f70d89"
       def install
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v0.3.0/forge-0.3.0-linux-arm64.tar.gz"
-      sha256 "9112e4066053e09d386a084f5323e2bd41e509d433843b1894135116b61b2b2e"
+      url "https://github.com/xraph/forge/releases/download/v0.6.0/forge-0.6.0-linux-arm64.tar.gz"
+      sha256 "a717fd29176a62faf564609fdb10b92d88676f478fd2b080d441ba939ca529ed"
       def install
         bin.install "forge"
       end
