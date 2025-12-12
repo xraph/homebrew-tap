@@ -13,7 +13,7 @@ class Forge < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/xraph/forge/releases/download/v0.7.3/forge-0.7.3-darwin-x86_64.tar.gz"
-      sha256 "be9db647ac0a8c0f398f808f8e4085cfb2a943035165f62763969059f0fe5d3e"
+      sha256 "316c048e3d3de5250870ebf24e719d4f79955b5492e98fffe8e812e76a4cc4f1"
 
       def install
         bin.install "forge"
@@ -21,7 +21,7 @@ class Forge < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/xraph/forge/releases/download/v0.7.3/forge-0.7.3-darwin-arm64.tar.gz"
-      sha256 "fc2a0c7fc3589897a0bbe799d3cf51b0f38cd4a3a3750793e53c85abe39c9e8c"
+      sha256 "e079ffbb5a6657ef41760ab6b34e590f4b844cf3d63169b1657d529df0d04398"
 
       def install
         bin.install "forge"
@@ -32,14 +32,14 @@ class Forge < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/xraph/forge/releases/download/v0.7.3/forge-0.7.3-linux-x86_64.tar.gz"
-      sha256 "2fb2603f9077a3e9c30fe8734b74535b02f17e2b8b3c6cdcb05af40ef55b4f77"
+      sha256 "52f6667252959c03cfd1945f45bfb9cce4acbd626c989b2a1952f82c0b19534c"
       def install
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/xraph/forge/releases/download/v0.7.3/forge-0.7.3-linux-arm64.tar.gz"
-      sha256 "451f0154af4e82b6632bd5460bc363e6d2b193b5ccc820772d794cd4912f6689"
+      sha256 "52bf336af481796bd60cbe43c87353ce64b991baddbaf7d6e215fc69e8e32cc6"
       def install
         bin.install "forge"
       end
