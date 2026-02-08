@@ -1,0 +1,74 @@
+name: Update game-cli Formula
+
+on:
+  repository_dispatch:
+    types: [update-game-cli]
+
+jobs:
+  update:
+    name: Update game-cli formula
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update formula
+        env:
+          VERSION: ${{ github.event.client_payload.version }}
+          MACOS_X86_SHA: ${{ github.event.client_payload.macos_x86_sha }}
+          MACOS_ARM_SHA: ${{ github.event.client_payload.macos_arm_sha }}
+          LINUX_SHA: ${{ github.event.client_payload.linux_sha }}
+        run: |
+          echo "Updating game-cli formula to version ${VERSION}"
+          echo "macOS x86_64 SHA: ${MACOS_X86_SHA}"
+          echo "macOS ARM64 SHA: ${MACOS_ARM_SHA}"
+          echo "Linux SHA: ${LINUX_SHA}"
+
+          cat > Formula/game-cli.rb << EOF
+          # typed: false
+          # frozen_string_literal: true
+
+          class GameCli < Formula
+            desc "CLI tool for GameFramework - automate Unity/Unreal exports and integration"
+            homepage "https://github.com/xraph/game-cli"
+            version "${VERSION}"
+            license "MIT"
+
+            on_macos do
+              if Hardware::CPU.arm?
+                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64.tar.gz"
+                sha256 "${MACOS_ARM_SHA}"
+              else
+                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64.tar.gz"
+                sha256 "${MACOS_X86_SHA}"
+              end
+            end
+
+            on_linux do
+              url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-linux-x64.tar.gz"
+              sha256 "${LINUX_SHA}"
+            end
+
+            def install
+              bin.install "game"
+            end
+
+            test do
+              assert_match version.to_s, shell_output("#{bin}/game --version")
+            end
+          end
+          EOF
+
+          # Remove leading whitespace from heredoc
+          sed -i 's/^          //' Formula/game-cli.rb
+          cat Formula/game-cli.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/game-cli.rb
+          git commit -m "chore: update game-cli to v${{ github.event.client_payload.version }}" || echo "No changes to commit"
+          git push
