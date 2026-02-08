@@ -17,37 +17,46 @@ jobs:
       - name: Update formula
         env:
           VERSION: ${{ github.event.client_payload.version }}
+          FILE_SUFFIX: ${{ github.event.client_payload.file_suffix }}
           MACOS_X86_SHA: ${{ github.event.client_payload.macos_x86_sha }}
           MACOS_ARM_SHA: ${{ github.event.client_payload.macos_arm_sha }}
           LINUX_SHA: ${{ github.event.client_payload.linux_sha }}
         run: |
           echo "Updating game-cli formula to version ${VERSION}"
+          echo "File suffix: '${FILE_SUFFIX}'"
           echo "macOS x86_64 SHA: ${MACOS_X86_SHA}"
           echo "macOS ARM64 SHA: ${MACOS_ARM_SHA}"
           echo "Linux SHA: ${LINUX_SHA}"
+          
+          # Determine description based on suffix
+          if [ "${FILE_SUFFIX}" == "-demo" ]; then
+            DESC="CLI tool for GameFramework (Demo - cloud features disabled)"
+          else
+            DESC="CLI tool for GameFramework - automate Unity/Unreal exports and integration"
+          fi
 
           cat > Formula/game-cli.rb << EOF
           # typed: false
           # frozen_string_literal: true
 
           class GameCli < Formula
-            desc "CLI tool for GameFramework - automate Unity/Unreal exports and integration"
+            desc "${DESC}"
             homepage "https://github.com/xraph/game-cli"
             version "${VERSION}"
             license "MIT"
 
             on_macos do
               if Hardware::CPU.arm?
-                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64.tar.gz"
+                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64${FILE_SUFFIX}.tar.gz"
                 sha256 "${MACOS_ARM_SHA}"
               else
-                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64.tar.gz"
+                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64${FILE_SUFFIX}.tar.gz"
                 sha256 "${MACOS_X86_SHA}"
               end
             end
 
             on_linux do
-              url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-linux-x64.tar.gz"
+              url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-linux-x64${FILE_SUFFIX}.tar.gz"
               sha256 "${LINUX_SHA}"
             end
 
