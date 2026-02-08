@@ -5,23 +5,23 @@
 class Forgeui < Formula
   desc "SSR-first UI framework for Go with 35+ components, Tailwind CSS, and Alpine.js integration"
   homepage "https://github.com/xraph/forgeui"
-  version "0.0.7"
+  version "0.0.8"
   license "MIT"
 
   depends_on "go" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/forgeui/releases/download/v0.0.7/forgeui-0.0.7-darwin-x86_64.tar.gz"
-      sha256 "d4458a4fa6d8841bd2a2b66827264e872fda279ffd633bc02a78c069b6e32e05"
+      url "https://github.com/xraph/forgeui/releases/download/v0.0.8/forgeui-0.0.8-darwin-x86_64.tar.gz"
+      sha256 "e924578f6ab65706692e8a3c53ab7df218cbe549cb1afb67efa1d30292bfa761"
 
       def install
         bin.install "forgeui"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/forgeui/releases/download/v0.0.7/forgeui-0.0.7-darwin-arm64.tar.gz"
-      sha256 "c5e7b9ae7adc613281f114a3b5e501e3ad3d7aca33dd164a4f7ba9f533a350c6"
+      url "https://github.com/xraph/forgeui/releases/download/v0.0.8/forgeui-0.0.8-darwin-arm64.tar.gz"
+      sha256 "903871798d44e95438a0e7fea1b3db703ee27d6dedfbe49c28fc0f3d51557c63"
 
       def install
         bin.install "forgeui"
@@ -31,15 +31,15 @@ class Forgeui < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forgeui/releases/download/v0.0.7/forgeui-0.0.7-linux-x86_64.tar.gz"
-      sha256 "800dc41ae20afde09219fa4d8da1b2eeb84b4358d2555e26e51eea64d4d05665"
+      url "https://github.com/xraph/forgeui/releases/download/v0.0.8/forgeui-0.0.8-linux-x86_64.tar.gz"
+      sha256 "e6de58133d42027f19816ab20d2645eb0482b7fe251c76bc0ef47343e93222d5"
       def install
         bin.install "forgeui"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forgeui/releases/download/v0.0.7/forgeui-0.0.7-linux-arm64.tar.gz"
-      sha256 "8e157cd4c88c97da42631617a5509ebc3ec22ad1a1312cb41db17373b64766d6"
+      url "https://github.com/xraph/forgeui/releases/download/v0.0.8/forgeui-0.0.8-linux-arm64.tar.gz"
+      sha256 "a99b5db0657e844ec2066edd856b1ff023ff4ce3e89f83263512155401b771c0"
       def install
         bin.install "forgeui"
       end
