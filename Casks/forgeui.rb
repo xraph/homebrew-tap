@@ -3,7 +3,7 @@ cask "forgeui" do
   name "forgeui"
   desc "SSR-first UI framework for Go with 35+ components, Tailwind CSS, and Alpine.js integration"
   homepage "https://github.com/xraph/forgeui"
-  version "1.0.0"
+  version "1.1.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -13,27 +13,23 @@ cask "forgeui" do
 
   on_macos do
     on_intel do
-      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-x86_64.tar.gz",
-        verified: "github.com/xraph/forgeui"
-      sha256 "a8e15f97f551318796320bdd2266fba159a7a6f7f32be33d72145be730926084"
+      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-x86_64.tar.gz"
+      sha256 "38c11c94f5a5c8dd354f34c994b590b70b1b9308647ccc61519bcec798e33de8"
     end
     on_arm do
-      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-arm64.tar.gz",
-        verified: "github.com/xraph/forgeui"
-      sha256 "ceaef3b7ee3bbd0aecb94bd20030bfc5e50d9ec7f6374d2595935c661928e7ce"
+      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-arm64.tar.gz"
+      sha256 "309936ab3c92f99b6c7f47dfb42e92938585c225b42288a222ba66d9a925ee9d"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-x86_64.tar.gz",
-        verified: "github.com/xraph/forgeui"
-      sha256 "6da985412200148337f28e6b6ab79b71ffa038d3003816d95a44e94fa522024b"
+      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-x86_64.tar.gz"
+      sha256 "b14955ab6903634eb8413e7ce018dceb9adddb95de18933226a6c1c49c6dc165"
     end
     on_arm do
-      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-arm64.tar.gz",
-        verified: "github.com/xraph/forgeui"
-      sha256 "befbb99d65aef930c25e6e45252a5a16802cbed7472a3a2796f151e601dc426b"
+      url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-arm64.tar.gz"
+      sha256 "101ca9164130ee31415199e25cf98ff2d8a3ad637af98ef1b6e6d39cb09effc7"
     end
   end
 
@@ -41,6 +37,10 @@ cask "forgeui" do
     if OS.mac?
       system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/forgeui"]
     end
+  end
+
+  caveats do
+    "Run 'forgeui --help' to get started"
   end
 
   # No zap stanza required
