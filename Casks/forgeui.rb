@@ -3,7 +3,7 @@ cask "forgeui" do
   name "forgeui"
   desc "SSR-first UI framework for Go with 35+ components, Tailwind CSS, and Alpine.js integration"
   homepage "https://github.com/xraph/forgeui"
-  version "1.3.0"
+  version "1.4.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "forgeui" do
   on_macos do
     on_intel do
       url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-x86_64.tar.gz"
-      sha256 "1bde67c461d3cbaa759fc7e8e8341b478d26496a627ab48529daccb2b8eb0141"
+      sha256 "7c8313c409c86e5f1a96fa27ee1f150bb66339e2587d7d740a200dade5554f46"
     end
     on_arm do
       url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-darwin-arm64.tar.gz"
-      sha256 "3f75fa5102b73743bcaa206bc5949abbd94bc581208a2ff48b69bb89db38d821"
+      sha256 "51bdf932cefc00d86722ddd14a3cf64b8d450b58b01dddd3d490d8974acac50f"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-x86_64.tar.gz"
-      sha256 "d3e5cbc7977f1d357527e9b4b182a915e6aa3a5529ddc712f90308a6dfd87504"
+      sha256 "a6eaa26c43b83625a6d5dc7195218675b48901d7647847c3b3af4f9ad415c29f"
     end
     on_arm do
       url "https://github.com/xraph/forgeui/releases/download/v#{version}/forgeui-#{version}-linux-arm64.tar.gz"
-      sha256 "b409e7a16e1790127a196de82f2fb06a5ce91d78a521077f2f2a3a417ecd7b21"
+      sha256 "4c60de9e0f2686baf45d529791d2763bd7df231a2cf6a8e42c16b6fb28be9a69"
     end
   end
 
