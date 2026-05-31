@@ -47,16 +47,16 @@ jobs:
 
             on_macos do
               if Hardware::CPU.arm?
-                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64${FILE_SUFFIX}.tar.gz"
+                url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64${FILE_SUFFIX}.tar.gz"
                 sha256 "${MACOS_ARM_SHA}"
               else
-                url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64${FILE_SUFFIX}.tar.gz"
+                url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64${FILE_SUFFIX}.tar.gz"
                 sha256 "${MACOS_X86_SHA}"
               end
             end
 
             on_linux do
-              url "https://github.com/xraph/game-cli/releases/download/v#{version}/game-cli-v#{version}-linux-x64${FILE_SUFFIX}.tar.gz"
+              url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-linux-x64${FILE_SUFFIX}.tar.gz"
               sha256 "${LINUX_SHA}"
             end
 
