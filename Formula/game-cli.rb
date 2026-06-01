@@ -4,22 +4,22 @@
 class GameCli < Formula
   desc "CLI tool for GameFramework - automate Unity/Unreal exports and integration"
   homepage "https://github.com/xraph/game-cli"
-  version "1.2.9"
+  version "1.2.10"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-macos-aarch64.tar.gz"
-      sha256 "b3018650a7f285237627fa3901ad585cdf7aae5c23db26bc6de2e51d630c18d1"
+      sha256 "cd953b116840061bbdf099140e333e855c2e4a5cb18c44260eca276dec39df9c"
     else
       url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-macos-x86_64.tar.gz"
-      sha256 "4234237557c2a23d9c84e8dcf72373a6b30ae6f97f69e2ec9e2837726f406366"
+      sha256 "224e3609a89428dd3c767d468809af93c76a2e7b6de9d58234e2108253fa4b91"
     end
   end
 
   on_linux do
     url "https://github.com/xraph/game-cli-dist/releases/download/v#{version}/game-cli-v#{version}-linux-x64.tar.gz"
-    sha256 "1d1b1d49844799fb717a5dc33debda2586c60f53045062b98f590af84d56a440"
+    sha256 "af837a9e6a175f41cb0e3f38135ec1eeee854c82e48a869b5f2e5da9c73ccf72"
   end
 
   def install
