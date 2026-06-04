@@ -1,25 +1,25 @@
 class OctopusCli < Formula
   desc "CLI for Octopus API Gateway"
   homepage "https://octopus.io"
-  version "0.3.9"
+  version "0.3.10"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/octopus/releases/download/v0.3.9/octopus-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "9baf32536da2aa93abb713e7757f83d82b8b5227064cef1faf97e33b96421004"
+      url "https://github.com/xraph/octopus/releases/download/v0.3.10/octopus-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "df431eb2eee558b734462a77742f2f4bd9766a30ff95eea386c69ae2a61a973b"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/octopus/releases/download/v0.3.9/octopus-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "1b2d85efe86c01997e3396d988cf2cad4ccd7d2771c654c7841c9231d5d17d22"
+      url "https://github.com/xraph/octopus/releases/download/v0.3.10/octopus-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "cf60e2f8c4b2895eaa299e34efcefa72230ed356d9995efcde0d43ace67e81fa"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/octopus/releases/download/v0.3.9/octopus-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "4fe0782450b003c07cfc38c1ed108bec0c1be3a154be34b59e86a2f2a9029577"
+      url "https://github.com/xraph/octopus/releases/download/v0.3.10/octopus-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "c663b0111dd99dd154d64c66c650d2a787ea4c00f30ed577d44d2413d9c06023"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/octopus/releases/download/v0.3.9/octopus-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "1b6c3df943f2dd0a8a058b0d1dcc981466d7f070aa6364d706b4d257928f5215"
+      url "https://github.com/xraph/octopus/releases/download/v0.3.10/octopus-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "384eef5a62e377d48f1971eb6e47fa907996bcc17f348a02c851cad3d9fcf536"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
