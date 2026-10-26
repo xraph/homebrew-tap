@@ -1,25 +1,25 @@
 class OctopusCli < Formula
   desc "CLI for Octopus API Gateway"
   homepage "https://octopus.io"
-  version "0.4.1"
+  version "0.5.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/octopus/releases/download/v0.4.1/octopus-cli-aarch64-apple-darwin.tar.xz"
-      sha256 "e161b9455d6abe6b0c27a4f1895c52930c8b2209b269e7cb93e5e319e1b05259"
+      url "https://github.com/xraph/octopus/releases/download/v0.5.0/octopus-cli-aarch64-apple-darwin.tar.xz"
+      sha256 "9ca063c276156c7e098acd7d84577d328873a3225425359050e3865a730de6b9"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/octopus/releases/download/v0.4.1/octopus-cli-x86_64-apple-darwin.tar.xz"
-      sha256 "e013e779284835a08257dc9bb7767808360e5ee89a910e8558d42884f57b8ab2"
+      url "https://github.com/xraph/octopus/releases/download/v0.5.0/octopus-cli-x86_64-apple-darwin.tar.xz"
+      sha256 "5a52664223d132f49b32517ecf0f7581e2b6fac623009b4a6b5bb99172a6e7d3"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/octopus/releases/download/v0.4.1/octopus-cli-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "1537c1c8120ca8dc375801b646b6d9e476c0cb6619c08f006119fc5284f436fb"
+      url "https://github.com/xraph/octopus/releases/download/v0.5.0/octopus-cli-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "2844c320f9e59f1b8e50e98a2e9157ddae1bcdc47c95726bbe6ee6e0d41dccd5"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/octopus/releases/download/v0.4.1/octopus-cli-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "c6fad61b0099fda7400db06d62a55f575a8f289a7bd746452a6b1d7b1b77603f"
+      url "https://github.com/xraph/octopus/releases/download/v0.5.0/octopus-cli-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "551d262baa96c86c24036e3822dc70331a0f5983579ae60a9e2518ccc1cb1be0"
     end
   end
   license any_of: ["MIT", "Apache-2.0"]
@@ -47,10 +47,18 @@ class OctopusCli < Formula
   end
 
   def install
-    bin.install "octopus" if OS.mac? && Hardware::CPU.arm?
-    bin.install "octopus" if OS.mac? && Hardware::CPU.intel?
-    bin.install "octopus" if OS.linux? && Hardware::CPU.arm?
-    bin.install "octopus" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "octopus"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "octopus"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "octopus"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "octopus"
+    end
 
     install_binary_aliases!
 
