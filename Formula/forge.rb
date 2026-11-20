@@ -5,23 +5,23 @@
 class Forge < Formula
   desc "Comprehensive backend framework for Go with enterprise-grade features"
   homepage "https://github.com/xraph/forge"
-  version "1.14.2"
+  version "1.14.3"
   license "MIT"
 
   depends_on "go" => :optional
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/xraph/forge/releases/download/v1.14.2/forge-1.14.2-darwin-x86_64.tar.gz"
-      sha256 "ce2517047af5e852768e3af28a1be44735ad9b6c48ad73642d591629039ffcc7"
+      url "https://github.com/xraph/forge/releases/download/v1.14.3/forge-1.14.3-darwin-x86_64.tar.gz"
+      sha256 "640422dd6466ea80c27b7261ef340baffe4f960b825ea4bdbd5e4bbe6b8b14b4"
 
       define_method(:install) do
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/xraph/forge/releases/download/v1.14.2/forge-1.14.2-darwin-arm64.tar.gz"
-      sha256 "d6f76f5c49183f5b6e158d189c538f9cab24c96e639c339bc881059dee50a354"
+      url "https://github.com/xraph/forge/releases/download/v1.14.3/forge-1.14.3-darwin-arm64.tar.gz"
+      sha256 "ac0a1d7c0894eda0ecc242da92d71217f7a02eb05f5b0e531482d27ef51e2e33"
 
       define_method(:install) do
         bin.install "forge"
@@ -31,15 +31,15 @@ class Forge < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v1.14.2/forge-1.14.2-linux-x86_64.tar.gz"
-      sha256 "b06f369ece4e40af45a0f8653571973e52cdc53a18294cc0a68726ffe2c95dc2"
+      url "https://github.com/xraph/forge/releases/download/v1.14.3/forge-1.14.3-linux-x86_64.tar.gz"
+      sha256 "7906271db5bd317fdddc9b7d2553e97fe02866c83c3166c0f4934155a286e5dc"
       define_method(:install) do
         bin.install "forge"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/xraph/forge/releases/download/v1.14.2/forge-1.14.2-linux-arm64.tar.gz"
-      sha256 "49a5f04be4528659ea50d626b820f9bfbb145c940a08a149cfee39b490bc15e5"
+      url "https://github.com/xraph/forge/releases/download/v1.14.3/forge-1.14.3-linux-arm64.tar.gz"
+      sha256 "d384dc6e4b98530e4e16a8ddc62cb693e00f5b9510f6a0a3dc53c4890a40085e"
       define_method(:install) do
         bin.install "forge"
       end
